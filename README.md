@@ -2,6 +2,9 @@
   
 # Bot-VIO
 **BotVIO: A Lightweight Transformer-Based Visual-Inertial Odometry for Robotics**
+  Wenhui Wei, Yangfan Zhou*, Yimin Hu, Zhi Li, Sen Wang,  Xin Liu, Jiadong Li
+  School of Nano-Tech and Nano-Bionics, University of Science and Technology of China;
+  Suzhou Institute of Nano-Tech and Nano-Bionics (SINANO), Chinese Academy of Sciences
   
 <a href="#license">
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"/>
@@ -27,7 +30,7 @@
 Please refer to [Visual-Selective-VIO](https://github.com/mingyuyng/Visual-Selective-VIO) to prepare your data. 
 
 ## Download Pretrainined Models
-Please download pretrained models and place them under pretrain_models directory.
+Please download [pretrained models](https://drive.google.com/drive/folders/1D-CpdPKyOwRMFlU-sp0dhslvIBmx9oxf?usp=drive_link) and place them under pretrain_models directory.
 
 ## Evaluation
 ### Pose Results
@@ -35,17 +38,18 @@ Please download pretrained models and place them under pretrain_models directory
     
 ### Pose Evaluation
     python ./evaluation/evaluate_pose_vo.py
-    Please modify '--data_path' in the options.py file to your path, modify pose embedding data to float16 in PositionalEncodingFourier (depth encoder.py file), and comment out the FC layer in the pose_encoder.py
+    Please modify '--data_path' in the options.py file to specify your dataset path. Additionally, update the pose embedding data type to float16 in PositionalEncodingFourier function within the depth encoder.py file.  In addtion, comment out the fully connected (FC) layer in the pose_encoder.py.
     
     python ./evaluation/evaluate_pose_vio.py
-    Please modify '--data_path' in the options.py file to your path and modify pose embedding data to float16 in PositionalEncodingFourier (depth encoder.py file) 
+    Please modify '--data_path' in the options.py file to specify your dataset path. Additionally, update the pose embedding data type to float16 in PositionalEncodingFourier function within the depth encoder.py file.
 
 ### Depth Evaluation
     python ./evaluation/evaluate_depth.py
-    Please modify '--data_path' in the options.py file to your path, and comment out the reading of IMU data in the mono_dataset.py
+    Please modify '--data_path' in the options.py file to specify your dataset path, and  comment out the IMU data reading process in the in the mono_dataset.py file.
     
 ### Running Time Evaluation
     python ./evaluation/evaluate_timing.py
-    Please modify '--data_path' in the options.py file to your path and modify pose embedding data to float16 in PositionalEncodingFourier (depth encoder.py file) 
+    Please modify '--data_path' in the options.py file to specify your dataset path. Additionally, update the pose embedding data type to float16 in PositionalEncodingFourier function within the depth encoder.py file.
 
-### The code was implemented based on Lite-Mono.
+### Reference
+[1] [Lite-Mono](https://github.com/noahzn/Lite-Mono), [2] [ViTA](https://github.com/KexianHust/ViTA)
