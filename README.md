@@ -2,9 +2,12 @@
   
 # Bot-VIO
 **BotVIO: A Lightweight Transformer-Based Visual-Inertial Odometry for Robotics**
+
   Wenhui Wei, Yangfan Zhou*, Yimin Hu, Zhi Li, Sen Wang,  Xin Liu, Jiadong Li
-  School of Nano-Tech and Nano-Bionics, University of Science and Technology of China;
-  Suzhou Institute of Nano-Tech and Nano-Bionics (SINANO), Chinese Academy of Sciences
+
+  1 School of Nano-Tech and Nano-Bionics, University of Science and Technology of China;
+
+  2 Suzhou Institute of Nano-Tech and Nano-Bionics (SINANO), Chinese Academy of Sciences
   
 <a href="#license">
   <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"/>
