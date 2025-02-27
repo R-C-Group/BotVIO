@@ -53,5 +53,8 @@ Please download [pretrained models](https://drive.google.com/drive/folders/1D-Cp
     python ./evaluation/evaluate_timing.py
     Please modify '--data_path' in the options.py file to specify your dataset path. Additionally, update the pose embedding data type to float16 in PositionalEncodingFourier function within the depth encoder.py file.
 
+### Citation
+The manuscript related to this work is currently under review.
+
 ### Reference
 [1] [Lite-Mono](https://github.com/noahzn/Lite-Mono), [2] [ViTA](https://github.com/KexianHust/ViTA)
