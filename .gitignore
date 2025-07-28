@@ -3,3 +3,4 @@ dataset/sequences/*
 pretrain_models/*.pth
 data/poses/*
 data/sequences/*
+*.pyc
