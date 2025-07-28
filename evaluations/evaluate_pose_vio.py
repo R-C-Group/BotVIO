@@ -61,7 +61,7 @@ def evaluate(opt):
                          "test_files_{:02d}.txt".format(sequence_id)))
 
         dataset = KITTIOdomDataset(opt.eval_data_path, filenames, opt.height, opt.width,
-                                   [0, 1], 4, is_train=False, img_ext='.jpg')
+                                   [0, 1], 4, is_train=False, img_ext='.png')
         dataloader = DataLoader(dataset, 2, shuffle=False,
                                 num_workers=opt.num_workers, pin_memory=True, drop_last=False)
 
@@ -134,7 +134,8 @@ def evaluate(opt):
                 np.linalg.inv(gt_global_poses[i]) @ gt_global_poses[i-1])
 
         ates = []
-        num_frames = gt_xyzs.shape[0]
+        # num_frames = gt_xyzs.shape[0]
+        num_frames = gt_xyzs.shape[1]#原代码似乎有问题～
         track_length = 5
         for i in range(0, num_frames - 1):
             local_xyzs = np.array(dump_xyz(pred_local_mat[i:i + track_length - 1]))

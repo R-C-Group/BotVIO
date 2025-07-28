@@ -53,7 +53,7 @@ class MonoDataset(data.Dataset):
                  frame_idxs,
                  num_scales,
                  is_train=False,
-                 img_ext='.jpg'):
+                 img_ext='.png'):
         super(MonoDataset, self).__init__()
 
         self.data_path = data_path
@@ -182,10 +182,10 @@ class MonoDataset(data.Dataset):
                 inputs[("color", i, -1)] = self.get_color(folder, frame_index + i, side, do_flip)
 
         ## IMU
-        # imu_path = os.path.join(self.data_path, 'imus', '{:02d}.mat'.format(int(folder)))
-        # imu = sio.loadmat(imu_path)['imu_data_interp']
-        # inputs[("imu")] = imu[(frame_index)*IMU_FREQ:(frame_index)*IMU_FREQ+IMU_FREQ+1]
-        # inputs[("imu1")] = imu[(frame_index+1)*IMU_FREQ:(frame_index+1)*IMU_FREQ+IMU_FREQ+1]
+        imu_path = os.path.join(self.data_path, 'imus', '{:02d}.mat'.format(int(folder)))
+        imu = sio.loadmat(imu_path)['imu_data_interp']
+        inputs[("imu")] = imu[(frame_index)*IMU_FREQ:(frame_index)*IMU_FREQ+IMU_FREQ+1]
+        inputs[("imu1")] = imu[(frame_index+1)*IMU_FREQ:(frame_index+1)*IMU_FREQ+IMU_FREQ+1]
 
         # adjusting intrinsics to match each scale in the pyramid
         for scale in range(self.num_scales):

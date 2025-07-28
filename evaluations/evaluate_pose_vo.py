@@ -61,7 +61,7 @@ def evaluate(opt):
                          "test_files_{:02d}.txt".format(sequence_id)))
 
         dataset = KITTIOdomDataset(opt.eval_data_path, filenames, opt.height, opt.width,
-                                   [0, 1], 4, is_train=False, img_ext='.jpg')
+                                   [0, 1], 4, is_train=False, img_ext='.png')
         dataloader = DataLoader(dataset, 2, shuffle=False,
                                 num_workers=opt.num_workers, pin_memory=True, drop_last=False)
 
